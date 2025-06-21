@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Basics</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="header-container">
+      <h1>Git & GitHub Tutorial</h1>
+      <img src="assets/images/profile_pic.jpg" alt="Rahul's Profile" class="profile-pic" />
+    </div>
+    <button id="toggleDarkMode" class="mode-toggle">🌗</button>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="section-title">Git</li>
+          <li><a href="git-intro.html"><i class="bi bi-git"></i> Git Introduction </a></li>
+          <li><a href="git-install.html"><i class="bi bi-bag-check"></i> Git Install </a></li>
+          <li><a href="git-basics.html" class="active"><i class="bi bi-terminal"></i> Git Basics </a></li>
+          <li><a href="git-inter.html"><i class="bi bi-folder-symlink"></i> Git Intermediate </a></li>
+          <li><a href="git-advanced.html"><i class="bi bi-diagram-3-fill"></i> Git Advanced </a></li>
+          <li class="section-title">GitHub</li>
+          <li><a href="github-intro.html"><i class="bi bi-github"></i> GitHub Introduction </a></li>
+          <li><a href="github-clone.html"><i class="bi bi-cloud-download"></i> Github Clone </a></li>
+          <li><a href="github-workflow.html"><i class="bi bi-repeat"></i> Github Workflow </a></li>
+          <li><a href="github-fork.html"><i class="bi bi-people"></i> Github Fork </a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <!-- Get Started with Git-->
+
+      <div class="card">
+        <h2><i class="bi bi-terminal-fill"></i> Git Basics </h2>
+
+        <section class="section">
+          <h3>Getting Started with Git</h3>
+          <p>Now that Git is installed and configured with your identity, you're ready to begin using it</p>
+
+          <h4>Setting Up Your First Repository</h4>
+          <p>Follow these essential steps to get started:</p>
+          <ul>
+            <li>Create a new project directory</li>
+            <li>Navigate to the directory</li>
+            <li>Initialize a Git repository</li>
+          </ul>
+
+          <h4>Creating a Git Project Folder</h4>
+          <p>Begin by setting up a dedicated folder for your project. This will serve as the foundation for organizing
+            and tracking your files efficiently.</p>
+
+
+          <h4>Navigating to the Project Folder and Initializing Git</h4>
+          <p>Once you've created your project folder, the next step is to navigate to it using the command line and
+            initialize a Git repository.</p>
+
+          <h4>Change Directory (cd) to Project Folder</h4>
+          <p>Use the following command to move into your project folder:</p>
+          <pre><code class="rah-code">cd path/to/your/project-folder</code></pre>
+          <p>Replace <code>path/to/your/project-folder</code> with the actual location of your folder.</p>
+
+          <h4>Initialize a Git Repository</h4>
+          <p>Once inside your project directory, initialize Git using:</p>
+          <pre><code class="rah-code">git init</code></pre>
+          <p>This command creates a hidden <code>.git</code> folder, where Git stores version history and
+            configurations.</p>
+          <img src="/assets/images/git init image.png" alt="git init check - git bash windows" class="img-small" />
+
+          <h4>Verifying the Initialization</h4>
+          <p>To confirm that Git has been set up correctly, use:</p>
+          <pre><code class="rah-code">git status</code></pre>
+          <p>If Git is initialized, this command will display the repository status.</p>
+          <img src="/assets/images/git status before.png" alt="git status before adding any file - git bash windows"
+            class="img-small" />
+
+          <p>
+            <hr />
+          </p>
+          <h3> Getting Started with Version Control </h3>
+
+          <h4>Add a new file</h4>
+          <p>
+            Now we will start using git for file management. Head over to the folder location where you have initialized
+            the git.
+            If you are in Linux, use <code>nedit</code> or <code>gedit</code> to create a new file.
+            Or manually create a new file in that folder location. Use 'editor' of your choice to create some dummy
+            content in the added file. I have created following content for my dummy file and named it as
+            <code>'index.html'</code>
+          </p>
+          <pre><code class="rah-code">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+              &lt;title&gt;My First Git Work&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+              &lt;h1&gt;First Git Work&lt;/h1&gt;
+              &lt;p&gt;Welcome to my prject in my new Git Repo.&lt;/p&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+
+          </code></pre>
+          <p>
+            Use <code> 'ls' </code> command in your 'command prompt' to see if the newly added file is present in this
+            folder location.
+            <code> 'ls' </code> lists all files in the current folder. <br />
+            You can also go to that location directly through file browser and confirm the presence of the newly added
+            file.
+          <pre><code class="rah-code">
+              ls
+              index.html
+            </code></pre>
+          Now use <code> 'git status' </code> command to check the status of your newly introduced file in the current
+          git folder
+          (since this folder is git initialized using <code>'git init'</code>).
+          </p>
+          <img src="/assets/images/git status after.png" alt="git status after adding any file - git bash windows"
+            class="img-small" />
+
+
+          <h4>Untracked File</h4>
+          <p>
+            You see the message above about 'untracked file'. It is saying that <code> 'index.html' </code> is
+            'untracked'.
+            This simply means there is a new file in the 'git folder' but 'git' is not told to keep track of this file.
+            So, there will be no record keeping for this file. If you want to track this file, which is really important
+            for your
+            version control requirements, you need to add this file to 'staging area'.
+          </p>
+          <h4> Git Add (Staging Area) </h4>
+          <p>
+            To keep track of your files, you need to 'add' your file to staging area using <code> 'git add' </code>
+            command.
+          </p>
+          <pre><code class=rah-code>
+            git add index.html
+          </code></pre>
+          <p>
+            You can also add everything which is untracked or changed using <code> 'git add --all' </code>
+          </p>
+          <pre><code class=rah-code>
+            git add --all
+          </code></pre>
+          <p> If you check <code> 'git status' </code> now. You will see something like this.
+            Now your file is no more untracked although it is not 'commited' yet. This means you are in a state where
+            you
+            have staged your file to commit or add to your repository but have not added it yet to the repsitory.
+          </p>
+          <img src="/assets/images/git status after git add.png" alt="git status after git add - git bash windows"
+            class="img-small" />
+          <p>
+            At this point, you can either commit this file or also unstage it.
+            To unstage means bring it out of the staging area where your file will no longer be tracked.
+            Use following command if you want to unstage it.
+          </p>
+          <pre><code class=rah-code>
+            git restore --staged index.html
+          </code></pre>
+
+          <h3> Git Commit</h3>
+          <p>
+            A commit acts as a checkpoint in your project, capturing the current state of
+            your files along with a descriptive message explaining the modifications.
+            If needed, you can always revert to a previous commit.
+          </p>
+          <pre><code class="rah-code">
+                    git commit -m "message" → Saves staged changes with a commit message.
+                    git commit -a -m "message" → Commits all tracked modifications, bypassing staging.
+                    git log → Displays the history of commits.
+
+          </code></pre>
+          <img src="/assets/images/git commit.png" alt="git commit - git bash windows" class="img-small" />
+
+
+
+        </section>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Rahul Kumar. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("toggleDarkMode").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+</body>
+
+</html>

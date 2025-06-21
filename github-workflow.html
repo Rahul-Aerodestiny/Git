@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Workflow</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="header-container">
+      <h1>Git & GitHub Tutorial</h1>
+      <img src="assets/images/profile_pic.jpg" alt="Rahul's Profile" class="profile-pic" />
+    </div>
+    <button id="toggleDarkMode" class="mode-toggle">🌗</button>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="section-title">Git</li>
+          <li><a href="git-intro.html"><i class="bi bi-git"></i> Git Introduction </a></li>
+          <li><a href="git-install.html"><i class="bi bi-bag-check"></i> Git Install </a></li>
+          <li><a href="git-basics.html"><i class="bi bi-terminal"></i> Git Basics </a></li>
+          <li><a href="git-inter.html"><i class="bi bi-folder-symlink"></i> Git Intermediate </a></li>
+          <li><a href="git-advanced.html"><i class="bi bi-diagram-3-fill"></i> Git Advanced </a></li>
+          <li class="section-title">GitHub</li>
+          <li><a href="github-intro.html"><i class="bi bi-github"></i> GitHub Introduction </a></li>
+          <li><a href="github-clone.html"><i class="bi bi-cloud-download"></i> Github Clone </a></li>
+          <li><a href="github-workflow.html" class="active"><i class="bi bi-repeat"></i> Github Workflow </a></li>
+          <li><a href="github-fork.html"><i class="bi bi-people"></i> Github Fork </a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+
+    <div class="card">
+    <h2><i class="bi bi-repeat"></i> GitHub Workflow </h2>
+      <section class="section">
+    <h3> After Cloining the Repo </h3>
+  <h4>1. Navigate into the Cloned Repository</h4>
+  <p>
+    After cloning, move into the repository directory using:
+  </p>
+  <pre><code class="rah-code">cd repo-name</code></pre>
+  <p>
+    Replace <code>repo-name</code> with your actual project folder name.
+  </p>
+</section>
+
+<section class="section">
+  <h4>2. Check the Remote Repository</h4>
+  <p>
+    Use the following command to view the linked GitHub repository:
+  </p>
+  <pre><code class="rah-code">git remote -v</code></pre>
+  <p>
+    This shows the fetch and push URLs for the remote named <code>origin</code>.
+  </p>
+</section>
+
+<section class="section">
+  <h4>3. Create a New Branch (Optional)</h4>
+  <p>
+    It’s a good practice to create a new branch before making changes:
+  </p>
+  <pre><code class="rah-code">git checkout -b feature-branch-name</code></pre>
+  <p>This helps in keeping the main branch stable.</p>
+</section>
+
+<section class="section">
+  <h4>4. Start Editing or Building</h4>
+  <p>
+    You can now begin working on your code. Any changes you make can be tracked using:
+  </p>
+  <pre><code class="rah-code">git status</code></pre>
+  <p>This shows modified files, new files, and untracked files.</p>
+</section>
+
+<section class="section">
+  <h4>5. Stage and Commit Changes</h4>
+  <p>
+    After making changes, stage and commit them:
+  </p>
+  <pre><code class="rah-code">git add .</code>
+<code class="rah-code">git commit -m "Your meaningful commit message"</code></pre>
+  <p>Use descriptive messages to explain what was done.</p>
+</section>
+
+<section class="section">
+  <h4>6. Push Changes to GitHub</h4>
+  <p>
+    Finally, push your branch to GitHub:
+  </p>
+  <pre><code class="rah-code">git push origin feature-branch-name</code></pre>
+  <p>This uploads your code to GitHub for collaboration or backup.</p>
+</section>
+</div>
+
+<!-- Pull, Push and Fetch -->
+<div class="card">
+<h2><i class="bi bi-arrow-repeat"></i> Pull, Push & Fetch </h2>
+<section class="section">
+  <h4>1. Git Pull</h4>
+  <p>
+    <code>git pull</code> is used to fetch and merge changes from the remote repository into your current branch.
+  </p>
+  <pre><code class="rah-code">git pull origin main</code></pre>
+  <p>
+    This command pulls updates from the <code>main</code> branch of the remote named <code>origin</code>.
+  </p>
+</section>
+
+<section class="section">
+  <h4>2. Git Push</h4>
+  <p>
+    After committing your changes locally, use <code>git push</code> to upload them to the GitHub repository.
+  </p>
+  <pre><code class="rah-code">git push origin main</code></pre>
+  <p>
+    Replace <code>main</code> with your branch name if you're working on a different one.
+  </p>
+</section>
+
+<section class="section">
+  <h4>3. Git Fetch</h4>
+  <p>
+    <code>git fetch</code> downloads the latest changes from the remote repository but does <strong>not merge</strong> them into your current branch.
+  </p>
+  <pre><code class="rah-code">git fetch origin</code></pre>
+  <p>
+    Use it when you want to inspect changes before merging. Combine it with <code>git log</code> or <code>git diff</code> to review changes.
+  </p>
+</section>
+
+<section class="section">
+  <h4>4. View Remote Branches</h4>
+  <p>
+    After fetching, you can see remote branches using:
+  </p>
+  <pre><code class="rah-code">git branch -r</code></pre>
+  <p>
+    This is useful to check what branches exist on the remote.
+  </p>
+</section>
+
+<section class="section">
+  <h4>5. Merge Fetched Changes</h4>
+  <p>
+    If you used <code>git fetch</code>, you can merge the changes manually with:
+  </p>
+  <pre><code class="rah-code">git merge origin/main</code></pre>
+  <p>
+    This merges the <code>main</code> branch from the remote into your local branch.
+  </p>
+</section>
+</div>
+
+<!-- Pull Request and Merge Conflict -->
+<div class="card">
+<h2><i class="bi bi-check2-circle"></i> Pull Request and Merge Conflict </h2>
+<section class="section">
+  <h4>1. What is a Pull Request?</h4>
+  <p>
+    A Pull Request (PR) is a way to propose changes in a project. You push your changes to a branch and then request them to be reviewed and merged into the main branch via GitHub’s interface.
+  </p>
+  <p>
+    It’s widely used in collaboration workflows.
+  </p>
+</section>
+
+<section class="section">
+  <h4>2. Create a Pull Request</h4>
+  <p>
+    After pushing your branch to GitHub, go to the repository on GitHub and click:
+  </p>
+  <ul>
+    <li><strong>Compare & pull request</strong> (appears after push)</li>
+    <li>Fill in the title and description</li>
+    <li>Click <strong>Create pull request</strong></li>
+  </ul>
+</section>
+
+<section class="section">
+  <h4>3. Merge a Pull Request</h4>
+  <p>
+    Once reviewed, you or a reviewer can merge the pull request using:
+  </p>
+  <ul>
+    <li><strong>Merge pull request</strong></li>
+    <li>Select <strong>Create a merge commit</strong> or <strong>Squash and merge</strong></li>
+  </ul>
+  <p>This brings your changes into the main branch.</p>
+</section>
+
+<section class="section">
+  <h4>4. What is a Merge Conflict?</h4>
+  <p>
+    A merge conflict occurs when Git cannot automatically resolve differences between two branches. It typically happens when two people change the same line in a file or one deletes a file the other modifies.
+  </p>
+</section>
+
+<section class="section">
+  <h4>5. Resolving Merge Conflicts</h4>
+  <p>
+    Open the file with conflict. Git marks conflicting areas like this:
+  </p>
+  <pre><code class="rah-code">
+<<<<<<< HEAD
+Your changes here
+=======
+Incoming changes here
+>>>>>>> branch-name
+  </code></pre>
+  <p>Edit the file to keep the desired content and remove the conflict markers.</p>
+  <p>Then use:</p>
+  <pre><code class="rah-code">git add conflicted-file.txt</code>
+<code class="rah-code">git commit</code></pre>
+</section>
+
+
+</div>
+
+
+</main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Rahul Kumar. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("toggleDarkMode").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+</body>
+
+</html>

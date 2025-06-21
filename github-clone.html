@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Clone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="header-container">
+      <h1>Git & GitHub Tutorial</h1>
+      <img src="assets/images/profile_pic.jpg" alt="Rahul's Profile" class="profile-pic" />
+    </div>
+    <button id="toggleDarkMode" class="mode-toggle">🌗</button>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="section-title">Git</li>
+          <li><a href="git-intro.html"><i class="bi bi-git"></i> Git Introduction </a></li>
+          <li><a href="git-install.html"><i class="bi bi-bag-check"></i> Git Install </a></li>
+          <li><a href="git-basics.html"><i class="bi bi-terminal"></i> Git Basics </a></li>
+          <li><a href="git-inter.html"><i class="bi bi-folder-symlink"></i> Git Intermediate </a></li>
+          <li><a href="git-advanced.html"><i class="bi bi-diagram-3-fill"></i> Git Advanced </a></li>
+          <li class="section-title">GitHub</li>
+          <li><a href="github-intro.html"><i class="bi bi-github"></i> GitHub Introduction </a></li>
+          <li><a href="github-clone.html" class="active"><i class="bi bi-cloud-download"></i> Github Clone </a></li>
+          <li><a href="github-workflow.html"><i class="bi bi-repeat"></i> Github Workflow </a></li>
+          <li><a href="github-fork.html"><i class="bi bi-people"></i> Github Fork </a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+
+    <div class="card">
+    <h2><i class="bi bi-cloud-download-fill"></i> Clone a GitHub Repository </h2>
+      <section class="section">
+        <h4> Git Clone (HTTPS)</h4>
+        <p>
+          To clone a GitHub repository using the HTTPS link, go to the desired GitHub repository, click on the green <strong>Code</strong> button, and copy the HTTPS URL.
+        </p>
+        <p>Use the following command to clone:</p>
+        <pre><code class="rah-code">git clone https://github.com/username/repo-name.git</code></pre>
+        <img src="assets/images/git-clone-https.png" alt="GitHub Clone via HTTPS" class="img-small">
+      </section>
+
+<section class="section">
+  <h4>Git Clone (SSH)</h4>
+  <p>
+    If you’ve set up SSH keys with your GitHub account, you can clone using SSH for a more secure connection. Copy the SSH URL from the <strong>Code</strong> dropdown.
+  </p>
+  <p>Use the command:</p>
+  <pre><code class="rah-code">git clone git@github.com:username/repo-name.git</code></pre>
+  <img src="assets/images/git-clone-ssh.png" alt="GitHub Clone via SSH" class="img-small">
+</section>
+
+<section class="section">
+  <h4>Switching Between HTTPS and SSH</h4>
+  <p>
+    If you cloned using HTTPS but want to switch to SSH (or vice versa), you can change the remote URL using:
+  </p>
+  <pre><code class="rah-code">git remote set-url origin git@github.com:username/repo-name.git</code></pre>
+  <p>To verify:</p>
+  <pre><code class="rah-code">git remote -v</code></pre>
+</section>
+</div>
+
+
+
+<!-- GitHub Clone using SSH -->
+<div class="card">
+<section class="section">
+  <h4>What is GitHub SSH?</h4>
+  <p>
+    SSH (Secure Shell) allows you to securely connect to GitHub without typing your username and password each time. It uses a pair of cryptographic keys – public and private – for authentication.
+  </p>
+  <p>
+    Once set up, you can use the SSH protocol for cloning, pushing, and pulling repositories without authentication popups.
+  </p>
+  <img src="assets/images/github_ssh_key.png" alt="GitHub SSH Concept" class="img-small">
+</section>
+
+<section class="section">
+  <h4>Step 1: Generate SSH Key</h4>
+  <p>
+    Open a terminal (Git Bash or CMD) and use the following command to generate an SSH key pair:
+  </p>
+  <pre><code class="rah-code">ssh-keygen -t ed25519 -C "your_email@example.com"</code></pre>
+  <p>
+    Press <code>Enter</code> to accept the default location. You may set a passphrase or leave it empty.
+  </p>
+  <p>
+    This creates two files: a private key <code>id_ed25519</code> and a public key <code>id_ed25519.pub</code> inside <code>~/.ssh</code>.
+  </p>
+</section>
+
+<section class="section">
+  <h4>Step 2: Add SSH Key to GitHub</h4>
+  <p>
+    Copy the contents of your public key file using the command below:
+  </p>
+  <pre><code class="rah-code">cat ~/.ssh/id_ed25519.pub</code></pre>
+  <p>Then:</p>
+  <ul>
+    <li>Go to <strong>GitHub → Settings → SSH and GPG keys</strong></li>
+    <li>Click <strong>New SSH Key</strong></li>
+    <li>Paste the copied content and save</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h4>Step 3: Test SSH Connection</h4>
+  <p>
+    Use the following command to test if your SSH key is properly connected:
+  </p>
+  <pre><code class="rah-code">ssh -T git@github.com</code></pre>
+  <p>
+    If successful, you’ll see a welcome message from GitHub.
+  </p>
+  <img src="assets/images/test_git_ssh.png" alt="Test SSH GitHub" class="img-small">
+</section>
+
+<section class="section">
+  <h4>Step 4: Clone Repository Using SSH</h4>
+  <p>
+    Once SSH is set up, you can clone a repository securely using:
+  </p>
+  <pre><code class="rah-code">git clone git@github.com:username/repo-name.git</code></pre>
+</section>
+
+</div>
+
+</main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Rahul Kumar. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("toggleDarkMode").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+</body>
+
+</html>

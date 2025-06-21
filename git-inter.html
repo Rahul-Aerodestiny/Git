@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git Intermediate</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="header-container">
+            <h1>Git & GitHub Tutorial</h1>
+            <img src="assets/images/profile_pic.jpg" alt="Rahul's Profile" class="profile-pic" />
+        </div>
+        <button id="toggleDarkMode" class="mode-toggle">🌗</button>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+                    <li class="section-title">Git</li>
+                    <li><a href="git-intro.html"><i class="bi bi-git"></i> Git Introduction </a></li>
+                    <li><a href="git-install.html"><i class="bi bi-bag-check"></i> Git Install </a></li>
+                    <li><a href="git-basics.html"><i class="bi bi-terminal"></i> Git Basics </a></li>
+                    <li><a href="git-inter.html" class="active"><i class="bi bi-folder-symlink"></i> Git Intermediate </a></li>
+                    <li><a href="git-advanced.html"><i class="bi bi-diagram-3-fill"></i> Git Advanced </a></li>
+                    <li class="section-title">GitHub</li>
+                    <li><a href="github-intro.html"><i class="bi bi-github"></i> GitHub Introduction </a></li>
+                    <li><a href="github-clone.html"><i class="bi bi-cloud-download"></i> Github Clone </a></li>
+                    <li><a href="github-workflow.html"><i class="bi bi-repeat"></i> Github Workflow </a></li>
+                    <li><a href="github-fork.html"><i class="bi bi-people"></i> Github Fork </a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="card">
+                <h2><i class="bi bi-award"></i> Git Tag </h2>
+
+                <section class="section">
+                    <p>
+                        In Git, a tag acts as a reference point for a specific commit, similar to a bookmark or label.
+                        Tags are primarily used to identify key moments in a project's timeline, such as version
+                        releases (e.g., v1.0 or v2.0). They provide a straightforward method for tracking different
+                        versions and making them easily
+                        accessible to your team or users.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h4>Lightweight Tag</h4>
+                    <p>
+                        A lightweight tag in Git is essentially a label assigned to a specific commit, serving as a
+                        quick reference without any additional metadata.
+                        It’s straightforward and efficient but does not retain extra details beyond the commit itself.
+                        You can create a lightweight tag as follows:
+                    </p>
+                    <pre><code class=rah-code>
+                        git tag v1.0
+                    </code></pre>
+                </section>
+
+                <section class="section">
+                    <h4>Annotated Tag</h4>
+                    <p>
+                        An annotated tag in Git is a more detailed reference to a specific commit, containing additional
+                        metadata beyond
+                        just the commit itself. Unlike lightweight tags, annotated tags store extra information such as
+                        the tagger's name, email,
+                        date, and an optional message, making them useful for version tracking and release management.
+                    </p>
+                    <ul class="key-concepts">
+                        <li>
+                            <strong>Metadata Storage:</strong> Includes details about the tag creator, timestamp, and an
+                            associated message.
+                        </li>
+                        <li>
+                            <strong>Permanent Record:</strong> Stored in Git's database as a separate object, ensuring
+                            long-term traceability.
+                        </li>
+                        <li>
+                            <strong>Verification Support:</strong> Can be signed with GPG keys for authentication and
+                            security.
+                        </li>
+                        <li>
+                            <strong>Useful for Releases:</strong> Commonly used to tag official versions of a project,
+                            making it easy to reference specific releases
+                        </li>
+
+                        </li>
+                    </ul>
+                    <pre><code class=rah-code>
+                        git tag -a v1.0 -m "Release Version v1.0"
+                    </code></pre>
+                    <p>
+                        Since annotated tags provide richer context and verification,
+                        they are ideal for maintaining a structured versioning system within a Git repository.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h4>Tag Using Hash</h4>
+                    <p>
+                        Git allows tagging a commit directly using its hash, which is helpful when you want to
+                        retroactively mark a specific commit as important or as a release point. This is especially
+                        useful when the commit is not the latest one.
+                    </p>
+                    <ul class="key-concepts">
+                        <li>
+                            <strong>Direct Tagging:</strong> You can create a tag on any commit using its SHA-1 hash
+                            value.
+                        </li>
+                        <li>
+                            <strong>Flexibility:</strong> Ideal for marking historical commits or specific milestones.
+                        </li>
+                        <li>
+                            <strong>Annotated or Lightweight:</strong> Both types of tags can be used with hashes.
+                        </li>
+                        <li>
+                            <strong>Useful in CI/CD:</strong> Commonly used when referencing build-specific commits.
+                        </li>
+                    </ul>
+                    <pre><code class=rah-code>
+    git tag -a v1.1 abc1234 -m "Tagging specific commit"
+  </code></pre>
+                    <p>
+                        Tagging using a hash gives you more control over version marking, especially in scenarios where
+                        a tag needs to reference past work.
+                    </p>
+                </section>
+
+
+                <section class="section">
+                    <h4>List Tags</h4>
+                    <p>
+                        Listing tags in a Git repository is useful for viewing all available versions or checkpoints
+                        marked within your project. It helps you understand the progression and history of your releases
+                        or important states.
+                    </p>
+                    <ul class="key-concepts">
+                        <li>
+                            <strong>All Tags:</strong> The basic command lists every tag created in the repository.
+                        </li>
+                        <li>
+                            <strong>Filter Support:</strong> You can use patterns to limit the output, such as listing
+                            only version 2 tags.
+                        </li>
+                        <li>
+                            <strong>Helpful in Releases:</strong> Useful in pipelines and release documentation to
+                            identify available versions.
+                        </li>
+                        <li>
+                            <strong>Easy Review:</strong> Gives a quick snapshot of major checkpoints.
+                        </li>
+                    </ul>
+                    <pre><code class=rah-code>
+    git tag
+  </code></pre>
+                    <p>
+                        Use listing to review and manage all tags, ensuring that important stages in your project are
+                        properly recorded and visible.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h4>Delete Tags</h4>
+                    <p>
+                        Sometimes you may need to delete a tag either due to incorrect versioning or obsolete
+                        checkpoints. Git makes it easy to remove tags locally and remotely when needed.
+                    </p>
+                    <ul class="key-concepts">
+                        <li>
+                            <strong>Local Deletion:</strong> Removes the tag from your local repository.
+                        </li>
+                        <li>
+                            <strong>Remote Cleanup:</strong> Tags pushed to remotes need separate deletion.
+                        </li>
+                        <li>
+                            <strong>Version Correction:</strong> Helpful when mistakenly tagging the wrong commit.
+                        </li>
+                        <li>
+                            <strong>Safe Operation:</strong> Deletion does not affect commit history.
+                        </li>
+                    </ul>
+                    <pre><code class=rah-code>
+    git tag -d v1.0
+  </code></pre>
+                    <p>
+                        Deleting tags ensures that your versioning stays accurate and relevant, avoiding confusion in
+                        shared repositories.
+                    </p>
+                </section>
+
+
+                <section class="section">
+                    <h4>Push Tags</h4>
+                    <p>
+                        After creating tags locally, you may want to share them with collaborators or CI/CD systems. Git
+                        supports pushing individual tags or all tags to a remote repository.
+                    </p>
+                    <ul class="key-concepts">
+                        <li>
+                            <strong>Single Tag Push:</strong> Allows targeted tag publishing to remotes.
+                        </li>
+                        <li>
+                            <strong>All Tags:</strong> Useful for bulk operations and version publishing.
+                        </li>
+                        <li>
+                            <strong>Version Sharing:</strong> Makes tags visible to all contributors.
+                        </li>
+                        <li>
+                            <strong>CI/CD Integration:</strong> Often used to trigger builds or releases in pipelines.
+                        </li>
+                    </ul>
+                    <pre><code class=rah-code>
+    git push origin v1.0
+  </code></pre>
+                    <p>
+                        Pushing tags ensures synchronization across all team members and environments, making
+                        collaboration and version control more reliable.
+                    </p>
+                </section>
+
+
+
+                <section class="section">
+                    <h4>Signed Tag</h4>
+                    <p>
+                        A signed tag in Git is similar to an annotated tag but includes a GPG or SSH signature for
+                        verification. This ensures that the tag was created by a trusted source, adding security and
+                        authenticity to version tracking.
+                    </p>
+                    <ul class="key-concepts">
+                        <li>
+                            <strong>Cryptographic Signature:</strong> Uses GPG keys to verify the identity of the tag
+                            creator.
+                        </li>
+                        <li>
+                            <strong>Secure Releases:</strong> Essential for open-source projects and official
+                            versioning.
+                        </li>
+                        <li>
+                            <strong>Traceable:</strong> Combines metadata with digital signature for strong audit
+                            trails.
+                        </li>
+                        <li>
+                            <strong>Requires Configuration:</strong> You must set up and configure GPG keys locally
+                            before use.
+                        </li>
+                    </ul>
+                    <pre><code class=rah-code>
+    git tag -s v2.0 -m "Signed release version v2.0"
+  </code></pre>
+                    <p>
+                        Signed tags provide an extra layer of trust, especially when publishing code to public
+                        repositories or handling sensitive release workflows.
+                    </p>
+                </section>
+            </div>
+
+    <div class="card">
+        <h2><i class="bi bi-folder-symlink"></i> Git Stash </h2>
+
+<section class="section">
+    <h4>What is Git Stash?</h4>
+    <p>
+        Git Stash helps you temporarily set aside uncommitted changes in your working directory, so you can switch tasks or branches without committing half-done work. This gives you a clean slate to handle urgent issues or explore other features without losing progress.
+    </p>
+    <ul class="key-concepts">
+        <li><strong>Switch Branches Safely:</strong> Store your work-in-progress before moving to another branch.</li>
+        <li><strong>Handle Critical Fixes:</strong> Pause your current task and return to it later.</li>
+        <li><strong>Avoid Incomplete Commits:</strong> Keeps your commit history clean and meaningful.</li>
+    </ul>
+</section>
+
+
+<section class="section">
+    <h4>Stash Your Changes</h4>
+    <p>
+        You can stash your current modifications—both staged and unstaged tracked files—using the basic stash command. This action clears your workspace, allowing for safe context-switching.
+    </p>
+    <ul class="key-concepts">
+        <li><strong>Tracked Files Only:</strong> By default, Git stashes only tracked files.</li>
+        <li><strong>Exclude Untracked Files:</strong> New files not yet added with <code>git add</code> are not included unless specified.</li>
+        <li><strong>Include Untracked:</strong> Use <code>-u</code> or <code>--include-untracked</code> to stash them too.</li>
+    </ul>
+    <pre><code class=rah-code>
+    git stash           # Stash tracked changes
+    git stash -u        # Include untracked files
+    </code></pre>
+    <p>
+        This clears your working directory and places your changes onto a stack, ready to be reapplied later.
+    </p>
+</section>
+
+<section class="section">
+    <h4>Stash Stack</h4>
+    <p>
+        Every time you stash changes, Git adds them to a stack. The latest stash sits on top, and you can retrieve or discard any stash by referencing its position in the list.
+    </p>
+    <ul class="key-concepts">
+        <li><strong>LIFO System:</strong> The most recent stash is always on top.</li>
+        <li><strong>Indexed:</strong> Each stash is tagged as <code>stash@{0}</code>, <code>stash@{1}</code>, etc.</li>
+    </ul>
+</section>
+
+
+<section class="section">
+    <h4>Stash with a Message</h4>
+    <p>
+        You can add a custom message to your stash to identify what changes it contains. This helps when you're juggling multiple work streams.
+    </p>
+    <pre><code class=rah-code>
+    git stash push -m "WIP: homepage redesign"
+    </code></pre>
+    <p>
+        This message appears in your stash list, making it easier to manage your stashes later.
+    </p>
+</section>
+
+
+<section class="section">
+    <h4>List All Stashes</h4>
+    <p>
+        View all the stashed changes in your project using the following command:
+    </p>
+    <pre><code class=rah-code>
+    git stash list
+    </code></pre>
+    <p>
+        Git will display each stash with an index and the message you added, if any.
+    </p>
+</section>
+
+<section class="section">
+    <h4>Show Stash Details</h4>
+    <p>
+        To see a quick summary of what was changed in your most recent stash, use:
+    </p>
+    <pre><code class=rah-code>
+    git stash show
+    </code></pre>
+    <p>
+        For a complete view with code differences, add the <code>-p</code> flag:
+    </p>
+    <pre><code class=rah-code>
+    git stash show -p
+    </code></pre>
+</section>
+
+<section class="section">
+    <h4>Apply the Latest Stash</h4>
+    <p>
+        Reapply the most recent stash without removing it from the stash list:
+    </p>
+    <pre><code class=rah-code>
+    git stash apply
+    </code></pre>
+    <p>
+        This brings back your saved changes, allowing you to continue where you left off.
+    </p>
+</section>
+
+
+<section class="section">
+    <h4>Apply a Specific Stash</h4>
+    <p>
+        You can apply any stash from the list by referring to its index:
+    </p>
+    <pre><code class=rah-code>
+    git stash apply stash@{1}
+    </code></pre>
+</section>
+
+<section class="section">
+    <h4>Pop the Stash</h4>
+    <p>
+        This command reapplies the most recent stash and deletes it from the stash stack:
+    </p>
+    <pre><code class=rah-code>
+    git stash pop
+    </code></pre>
+    <p>
+        Ideal when you want to restore changes and clear them from your list in one go.
+    </p>
+</section>
+
+<section class="section">
+    <h4>Drop a Stash</h4>
+    <p>
+        Remove a specific stash from the list using its index:
+    </p>
+    <pre><code class=rah-code>
+    git stash drop stash@{0}
+    </code></pre>
+</section>
+
+<section class="section">
+    <h4>Clear All Stashes</h4>
+    <p>
+        Delete every saved stash in your project:
+    </p>
+    <pre><code class=rah-code>
+    git stash clear
+    </code></pre>
+    <p>
+        Use this with caution—cleared stashes cannot be recovered.
+    </p>
+</section>
+
+<section class="section">
+    <h4>Branch from a Stash</h4>
+    <p>
+        You can directly create a new branch from a stash if your saved work deserves to be its own feature:
+    </p>
+    <pre><code class=rah-code>
+    git stash branch new-feature stash@{0}
+    </code></pre>
+    <p>
+        This creates a branch and applies the stash there, letting you develop your work in isolation.
+    </p>
+</section>
+    </div>
+
+
+    <div class="card">
+        <h2><i class="bi bi-clock-history"></i> Git History </h2>
+
+<section class="section">
+  <h4>Understanding Git History</h4>
+  <p>
+    Git maintains a complete record of every change in your repository.
+    Using history commands, you can check what was modified, when it happened, and who made the change.
+    This is incredibly helpful for tracking development, identifying bugs, and reviewing the project's journey.
+  </p>
+</section>
+
+<section class="section">
+  <h4>Essential Commands for Viewing History</h4>
+  <ul>
+    <li><code>git log</code> – Display complete commit history</li>
+    <li><code>git log --oneline</code> – View a concise version of commit history</li>
+    <li><code>git show &lt;commit&gt;</code> – See details of a particular commit</li>
+    <li><code>git diff</code> – Show unstaged file changes</li>
+    <li><code>git diff --staged</code> – Show staged file changes</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h4>Tips for Managing History Effectively</h4>
+  <ul>
+    <li>Commit regularly and keep messages meaningful and relevant.</li>
+    <li>Write clear commit messages for better collaboration and understanding.</li>
+    <li>Use <code>git log --oneline</code> to get a fast snapshot of commit history.</li>
+    <li>Use <code>git diff</code> to review your changes before committing.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h4>Viewing Complete Commit Log</h4>
+  <p>To check all commits in your repo:</p>
+  <pre><code>git log</code></pre>
+  <pre><code>commit 09f4acd3f8836b7f...
+Author: Dev Team
+Date:   Fri Mar 26 09:35:54 2021 +0100
+
+    Modified index.html with new line</code></pre>
+</section>
+
+<section class="section">
+  <h4>Inspecting a Specific Commit</h4>
+  <pre><code>git show 09f4acd</code></pre>
+  <pre><code>commit 09f4acd3f88...
+Author: Dev Team
+Date:   Fri Mar 26 09:35:54 2021 +0100
+
+    Modified index.html
+
+diff --git a/index.html b/index.html
+@@ ...
++Updated Title</code></pre>
+</section>
+
+<section class="section">
+  <h4>Checking Local Modifications</h4>
+  <pre><code>git diff</code></pre>
+  <pre><code>diff --git a/index.html b/index.html
+@@ ...
+-Old Title
++Updated Title</code></pre>
+</section>
+
+<section class="section">
+  <h4>Reviewing Staged Changes</h4>
+  <pre><code>git diff --staged</code></pre>
+  <pre><code>diff --git a/index.html b/index.html
+@@ ...
+-Old Title
++Updated Title</code></pre>
+</section>
+
+<section class="section">
+  <h4>Comparing Two Commits</h4>
+  <pre><code>git diff abc123 def456</code></pre>
+</section>
+
+<section class="section">
+  <h4>Quick Overview of Commits</h4>
+  <pre><code>git log --oneline</code></pre>
+  <pre><code>09f4acd Updated homepage
+8e7b2c1 Added About page
+1a2b3c4 Initial structure</code></pre>
+</section>
+
+<section class="section">
+  <h4>Filter Commits by Author</h4>
+  <pre><code>git log --author="Alice"</code></pre>
+</section>
+
+<section class="section">
+  <h4>Show Commits From a Specific Timeframe</h4>
+  <pre><code>git log --since="2 weeks ago"</code></pre>
+</section>
+
+<section class="section">
+  <h4>Display Changed Files Per Commit</h4>
+  <pre><code>git log --stat</code></pre>
+  <pre><code>index.html | 2 +-
+1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
+</section>
+
+<section class="section">
+  <h4>Visualize Commit Tree with Graph</h4>
+  <pre><code>git log --graph --oneline</code></pre>
+  <pre><code>* 09f4acd Updated homepage
+* 8e7b2c1 Added About page
+|\
+| * aabbccd Merged feature-x
+|/</code></pre>
+</section>
+
+<section class="section">
+  <h4>Common Issues and Solutions</h4>
+  <ul>
+    <li>Not seeing your updates? Make sure they’ve been committed.</li>
+    <li>Too many logs to handle? Use <code>--oneline</code> or <code>--since</code> options for simplicity.</li>
+    <li>Stuck inside the log view? Hit <code>q</code> to exit.</li>
+  </ul>
+</section>
+</div>
+
+<div class="card">
+        <h2><i class="bi bi-question-circle"></i> Git Help </h2>
+
+<section class="section">
+  <p>
+    Git offers a vast set of commands, and it’s common to need assistance remembering their syntax or available options. Fortunately, Git includes a built-in help system that lets you access command manuals directly from your terminal—quickly and without leaving your workflow.
+  </p>
+</section>
+
+<section class="section">
+  <h4>When Should You Use Git Help?</h4>
+  <p>
+    Whether you're exploring a new command or just forgot a flag, Git's help commands are the fastest way to get reliable answers. They're especially useful when you want to stay inside the terminal.
+  </p>
+</section>
+
+<section class="section">
+  <h4>Useful Help Commands</h4>
+  <ul>
+    <li><code>git help &lt;command&gt;</code> – Opens the manual for the specified command</li>
+    <li><code>git &lt;command&gt; --help</code> – Alternative syntax for the same manual</li>
+    <li><code>git &lt;command&gt; -h</code> – Displays a concise summary of command options</li>
+    <li><code>git help --all</code> – Lists all Git commands on your system</li>
+    <li><code>git help -g</code> – Shows concept guides and useful documentation topics</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h4>Full Manual Page: <code>git help &lt;command&gt;</code></h4>
+  <p>
+    This opens the detailed manual of any Git command, including description, usage, and options.
+  </p>
+  <p><strong>Example:</strong></p>
+  <pre><code>git help commit</code></pre>
+  <p>This will launch the manual for <code>git commit</code>, showing its usage and available flags.</p>
+</section>
+
+<section class="section">
+  <h4>Alternative Way: <code>git &lt;command&gt; --help</code></h4>
+  <p>
+    Works exactly like <code>git help &lt;command&gt;</code>. Many users find this format more intuitive.
+  </p>
+  <p><strong>Example:</strong></p>
+  <pre><code>git status --help</code></pre>
+  <p>Launches the help for <code>git status</code>.</p>
+</section>
+
+<section class="section">
+  <h4>Quick Overview: <code>git &lt;command&gt; -h</code></h4>
+  <p>
+    Need just the options without the full manual? Use <code>-h</code> to get a summary right in the terminal.
+  </p>
+  <p><strong>Example:</strong></p>
+  <pre><code>git add -h</code></pre>
+  <p>Outputs a list of common flags like <code>--interactive</code>, <code>--patch</code>, etc.</p>
+</section>
+
+<section class="section">
+  <h4>See All Commands: <code>git help --all</code></h4>
+  <p>
+    Displays every Git command available on your system, categorized by their purpose. Note: It’s a long list!
+  </p>
+  <pre><code>git help --all</code></pre>
+  <p>Use <kbd>Shift + G</kbd> to jump to the end and <kbd>q</kbd> to exit the viewer.</p>
+</section>
+
+<section class="section">
+  <h4>Explore Git Guides: <code>git help -g</code></h4>
+  <p>
+    This command shows in-depth learning topics like <code>revisions</code>, <code>everyday</code> Git usage, and <code>attributes</code>. Ideal for diving deeper into Git’s concepts.
+  </p>
+  <pre><code>git help -g</code></pre>
+  <p>Example guides include:</p>
+  <ul>
+    <li><code>everyday</code> – Practical Git with 20 common commands</li>
+    <li><code>revisions</code> – Understanding revision ranges</li>
+    <li><code>glossary</code> – Definitions of key Git terms</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h4>Tips for Navigating Git Help Viewer</h4>
+  <ul>
+    <li>Use <kbd>Space</kbd> or arrow keys to scroll</li>
+    <li>Press <kbd>/</kbd> to search, then type your keyword</li>
+    <li>Press <kbd>n</kbd> for the next match</li>
+    <li>Press <kbd>q</kbd> to quit</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h4>Troubleshooting Help Viewer</h4>
+  <ul>
+    <li>If the help doesn’t open, try <code>git &lt;command&gt; -h</code> instead</li>
+    <li>To search inside help, press <kbd>/</kbd> followed by your term</li>
+    <li>Can't exit? Press <kbd>q</kbd> to quit the viewer</li>
+  </ul>
+</section>
+</div>
+
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Rahul Kumar. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("toggleDarkMode").addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+
+</html>

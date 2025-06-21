@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Fork</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="header-container">
+      <h1>Git & GitHub Tutorial</h1>
+      <img src="assets/images/profile_pic.jpg" alt="Rahul's Profile" class="profile-pic" />
+    </div>
+    <button id="toggleDarkMode" class="mode-toggle">🌗</button>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="section-title">Git</li>
+          <li><a href="git-intro.html"><i class="bi bi-git"></i> Git Introduction </a></li>
+          <li><a href="git-install.html"><i class="bi bi-bag-check"></i> Git Install </a></li>
+          <li><a href="git-basics.html"><i class="bi bi-terminal"></i> Git Basics </a></li>
+          <li><a href="git-inter.html"><i class="bi bi-folder-symlink"></i> Git Intermediate </a></li>
+          <li><a href="git-advanced.html"><i class="bi bi-diagram-3-fill"></i> Git Advanced </a></li>
+          <li class="section-title">GitHub</li>
+          <li><a href="github-intro.html"><i class="bi bi-github"></i> GitHub Introduction </a></li>
+          <li><a href="github-clone.html"><i class="bi bi-cloud-download"></i> Github Clone </a></li>
+          <li><a href="github-workflow.html"><i class="bi bi-repeat"></i> Github Workflow </a></li>
+          <li><a href="github-fork.html" class="active"><i class="bi bi-people"></i> Github Fork </a></li>
+        </ul>
+      </nav>
+    </aside>
+
+<main class="content">
+
+
+    <!-- GitHub Fork -->
+    <div class="card">
+        <h2><i class="bi bi-people"></i> GitHub Fork </h2>
+<section class="section">
+  <h4>1. What is a Fork?</h4>
+  <p>
+    A <strong>fork</strong> is a personal copy of someone else's repository on your GitHub account. It allows you to freely experiment with changes without affecting the original project.
+  </p>
+  <p>
+    Forks are used to propose changes via pull requests or to use someone else's project as a starting point.
+  </p>
+  <img src="assets/images/github-fork-concept.png" alt="GitHub Fork Concept" class="img-small">
+</section>
+
+<section class="section">
+  <h4>2. How to Fork a Repository</h4>
+  <p>
+    To fork a repository:
+  </p>
+  <ul>
+    <li>Go to the original repository on GitHub</li>
+    <li>Click the <strong>Fork</strong> button in the top right</li>
+    <li>GitHub creates a copy in your account</li>
+  </ul>
+  <img src="assets/images/github-fork-repo.png" alt="Fork Repository on GitHub" class="img-small">
+</section>
+
+<section class="section">
+  <h4>3. Clone Your Fork</h4>
+  <p>
+    After forking, clone the repository to your local system:
+  </p>
+  <pre><code class="rah-code">git clone https://github.com/your-username/forked-repo.git</code></pre>
+  <p>This creates a local copy of your fork.</p>
+</section>
+
+<section class="section">
+  <h4>4. Add Remote to Original Repo (Upstream)</h4>
+  <p>
+    To keep your fork updated with the original repo, first add the original as a new remote:
+  </p>
+  <pre><code class="rah-code">git remote add upstream https://github.com/original-user/original-repo.git</code></pre>
+  <pre><code class="rah-code">git remote -v</code></pre>
+  <p>This shows both <code>origin</code> (your fork) and <code>upstream</code> (original repo).</p>
+</section>
+
+<section class="section">
+  <h4>5. Sync Your Fork</h4>
+  <p>
+    To sync your fork with the latest changes from the original repository:
+  </p>
+  <pre><code class="rah-code">git fetch upstream</code></pre>
+  <pre><code class="rah-code">git checkout main</code></pre>
+  <pre><code class="rah-code">git merge upstream/main</code></pre>
+  <p>Then push the updated branch to your fork:</p>
+  <pre><code class="rah-code">git push origin main</code></pre>
+  </section>
+
+<section class="section">
+  <h4>6. Contribute via Pull Request</h4>
+  <p>
+    Make your changes in a new branch:
+  </p>
+  <pre><code class="rah-code">git checkout -b my-feature</code></pre>
+  <p>Commit and push the branch:</p>
+  <pre><code class="rah-code">git push origin my-feature</code></pre>
+  <p>
+    Then go to your GitHub fork and click <strong>Compare & pull request</strong> to propose changes to the original repository.
+  </p>
+</section>
+
+
+
+
+
+
+
+    </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Rahul Kumar. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("toggleDarkMode").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+</body>
+
+</html>

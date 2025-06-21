@@ -1,0 +1,419 @@
+/* === Global Styles === */
+/* Center header items and align profile picture */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* space between picture and title */
+  width: 100%;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+/* Optional: reduce space above and below the header for better balance */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === Topbar === */
+.topbar {
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mode-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* === Layout === */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 80px);
+}
+
+/* === Sidebar === */
+.sidebar {
+  width: 250px;
+  background-color: #04334d;
+  color: #fff;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 0.75rem;
+}
+
+.sidebar .section-title {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #ccc;
+  border-bottom: 1px solid #555;
+  padding-bottom: 2px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a:focus {
+  background-color: #027ab8;
+}
+
+.sidebar a.active {
+  background-color: #0077b6;
+  font-weight: bold;
+}
+
+/* === Main Content === */
+.content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+/* === Card Styles === */
+.card {
+  background-color: #fff;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Intro Card Specific Layout */
+.intro-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e8f9fd;
+}
+
+.intro-text {
+  flex: 1;
+  padding-right: 2rem;
+}
+.intro-img img {
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid #00b4db;
+  background-color: #fff;
+}
+
+/* Feature list styling */
+.feature-list {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+  line-height: 1.6;
+}
+
+/* === Section Divider --- optional separator between sections --- */
+.section-divider {
+  height: 2px;
+  background-color: #ddd;
+  margin: 3rem 0;
+  border-radius: 1px;
+}
+
+/* === Footer Styles === */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* === Dark Mode === */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ddd;
+}
+
+.dark-mode .topbar {
+  background: linear-gradient(to right, #111, #333);
+}
+
+.dark-mode .sidebar {
+  background-color: #111;
+  color: #bbb;
+}
+
+.dark-mode .sidebar a:hover {
+  background-color: #333;
+}
+.dark-mode .content {
+  background-color: #2b2b2b;
+  color: #ddd;
+}
+.dark-mode .intro-card {
+  background-color: #333;
+  box-shadow: none;
+}
+.dark-mode footer {
+  background-color: #1a1a1a;
+  color: #888;
+}
+
+/* === Responsive Styles === */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+  .intro-card {
+    flex-direction: column;
+  }
+  .intro-text {
+    padding: 0;
+  }
+  .intro-img img {
+    margin-top: 1rem;
+  }
+}
+
+/* Container card for content sections */
+.card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Section spacing and styling */
+.section {
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #222;
+}
+
+h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Styles for list items and code snippets */
+ul.feature-list {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+ol {
+  padding-left: 1.5rem;
+}
+
+/* Additional spacing for the main container */
+.content {
+  padding: 1rem;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+}
+
+/* === Dark Mode === */
+.dark-mode {
+  background-color: #121212; /* darker background for overall */
+  color: #e0e0e0; /* lighter text for general readability */
+}
+
+.dark-mode body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Topbar for dark mode */
+.dark-mode .topbar {
+  background: linear-gradient(to right, #222, #333);
+}
+
+/* Sidebar for dark mode */
+.dark-mode .sidebar {
+  background-color: #222;
+  color: #ccc;
+}
+
+.dark-mode .sidebar a {
+  color: #ccc;
+}
+.dark-mode .sidebar a:hover,
+.dark-mode .sidebar a:focus {
+  background-color: #444;
+}
+
+/* Active sidebar link */
+.dark-mode .sidebar a.active {
+  background-color: #555;
+  color: #fff;
+}
+
+/* Main content for dark mode */
+.dark-mode .content {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+/* Card styles for dark mode */
+.dark-mode .card {
+  background-color: #2b2b2b;
+  color: #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.dark-mode .card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Headers in dark mode style */
+.dark-mode h2,
+.dark-mode h3 {
+  color: #eee;
+}
+
+/* Footer in dark mode */
+.dark-mode footer {
+  background-color: #121212;
+  color: #999;
+}
+
+.key-concepts {
+  padding-left: 20px;
+  line-height: 1.6;
+  list-style-type: disc;
+  margin-top: 1rem;
+}
+
+.intro-box {
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 6px solid #00bcd4;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.intro-text h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.intro-text p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.experience-list {
+  list-style: disc inside;
+  margin: 0.5rem 0 0 1rem;
+  padding: 0;
+  color: #333;
+}
+
+.dark-mode .intro-box {
+  background: #333;
+  border-left-color: #00acc1;
+}
+
+.dark-mode .experience-list,
+.dark-mode .intro-text p {
+  color: #ccc;
+}
+
+pre {
+  background-color: #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.rah-code {
+  font-family: monospace;
+  color: #111;
+  text-align: center;
+}
+
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.img-small {
+  max-width: 25%;
+  height: auto;
+  display: block;
+}
