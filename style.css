@@ -417,3 +417,50 @@ pre {
   height: auto;
   display: block;
 }
+
+/* Hamburger toggle button */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Sidebar slide effect */
+.sidebar {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Mobile-specific behavior */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 80px; /* adjust based on your topbar height */
+    width: 250px;
+    height: calc(100vh - 80px);
+    background-color: #04334d;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .content {
+    padding-top: 1rem;
+  }
+}
+
